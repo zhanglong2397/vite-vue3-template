@@ -1,16 +1,15 @@
+import 'tailwindcss/tailwind.css'
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router/index'
+import router, { setupRouter } from './router'
 import { createPinia } from 'pinia'
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-
+import { setupNaive } from '@/plugins'
 const app = createApp(App)
 
-app.use(router)
+setupNaive(app)
+// 挂载路由
+setupRouter(app)
 
 app.use(createPinia())
-
-app.use(ElementPlus)
 
 app.mount('#app')
